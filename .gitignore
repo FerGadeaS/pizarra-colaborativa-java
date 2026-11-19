@@ -1,0 +1,21 @@
+
+# Archivos generados por Java
+**/build/
+**/dist/
+**/out/
+*.class
+
+# Configuración local
+.vscode/
+**/.vscode/
+**/test/
+
+# Archivos temporales
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Configuración privada de NetBeans
+**/nbproject/private/**
