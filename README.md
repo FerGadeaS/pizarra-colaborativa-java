@@ -93,19 +93,19 @@ El servidor debe estar ejecutándose antes de iniciar las conexiones de los clie
 ## 📸 Capturas de pantalla
 
 ### Interfaz del servidor
-![Servidor de la pizarra colaborativa](screenshots/Server.png)
+![Servidor de la pizarra colaborativa](Screenshots/Server.png)
 
 ### Inicio de sesión y registro
-![Inicio de sesión](screenshots/InicioSesion.png)
+![Inicio de sesión](Screenshots/InicioSesion.png)
 
 ### Interfaz de la pizarra
-![Pizarra colaborativa](screenshots/interfaz.png)
+![Pizarra colaborativa](Screenshots/interfaz.png)
 
 ### Trabajo simultáneo de varios clientes
-![Concurrencia](screenshots/interfaz2.png)
+![Concurrencia](Screenshots/interfaz2.png)
 
 ### Servidor con el trabajo simultáneo de varios clientes
-![Servidor de la pizarra colaborativa](screenshots/ServerConClientes.png)
+![Servidor de la pizarra colaborativa](Screenshots/ServerConClientes.png)
 
 ## 🎥 Demostración
 [Ver demostración en video](https://youtu.be/GfCalODNAsk)
