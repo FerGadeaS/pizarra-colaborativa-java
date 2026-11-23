@@ -124,7 +124,9 @@ El servidor debe estar ejecutándose antes de iniciar las conexiones de los clie
 
 ## Autor
 
-**Desarrollado por [FerGadeaS](https://github.com/FerGadeaS)**
+**Desarrollado por Luis Fernando Gadea Sánchez**
+
+[GitHub: FerGadeaS](https://github.com/FerGadeaS)
 
 Proyecto académico desarrollado como parte de mi formación en Ciencias de la Computación.
 
