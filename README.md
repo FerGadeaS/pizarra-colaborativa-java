@@ -2,9 +2,9 @@
 
 Aplicación de escritorio desarrollada en Java que permite a múltiples usuarios conectarse y trabajar simultáneamente en una pizarra compartida en tiempo real.
 
-El proyecto utiliza una arquitectura cliente-servidor, comunicación mediante sockets TCP y programación multihilo para gestionar las conexiones simultáneas.
+El sistema utiliza una arquitectura cliente-servidor, comunicación mediante sockets TCP y programación multihilo para gestionar conexiones simultáneas y sincronizar las acciones de los usuarios.
 
-## Características principales
+## Características
 
 - Registro de usuarios e inicio de sesión.
 - Comunicación cliente-servidor mediante sockets TCP.
@@ -23,7 +23,7 @@ El proyecto utiliza una arquitectura cliente-servidor, comunicación mediante so
 - **Multithreading:** gestión de conexiones simultáneas.
 - **MySQL:** almacenamiento de usuarios e historial de conexiones.
 - **JDBC:** conexión entre Java y MySQL.
-- **Apache Ant / NetBeans:** configuración y compilación de los proyectos.
+- **Apache Ant:** configuración y compilación de los proyectos.
 
 ## Estructura del proyecto
 
@@ -34,15 +34,21 @@ ProyectoConcurrente/
 ├── Cliente/
 │   ├── src/
 │   ├── nbproject/
-│   └── build.xml
+│   ├── build.xml
+│   └── manifest.mf
 ├── Servidor/
 │   ├── src/
 │   ├── nbproject/
-│   └── build.xml
-├── Documentacion/
-│   └── ManualTécnico.pdf
+│   ├── build.xml
+│   └── manifest.mf
 ├── lib/
 │   └── mysql-connector-j-26.10.0.jar
+├── screenshots/
+│   ├── Server.png
+│   ├── InicioSesion.png
+│   ├── interfaz.png
+│   ├── interfaz2.png
+│   └── ServerConClientes.png
 ├── .gitignore
 ├── LICENSE
 └── README.md
@@ -52,7 +58,7 @@ ProyectoConcurrente/
 
 - Java JDK.
 - MySQL Server.
-- NetBeans IDE o un entorno compatible con proyectos Java y Apache Ant.
+- Entorno compatible con proyectos Java y Apache Ant.
 - Puerto TCP 5000 disponible para la comunicación entre clientes y servidor.
 
 ## Configuración
@@ -78,7 +84,7 @@ ProyectoConcurrente/
 
 4. Verificar que MySQL Connector/J esté incluido en las dependencias del proyecto.
 
-5. Abrir los proyectos `Cliente` y `Servidor` en NetBeans y comprobar que compilan correctamente.
+5. Abrir los proyectos `Cliente` y `Servidor` en el entorno de desarrollo y comprobar que compilan correctamente.
 
 ## Ejecución
 
@@ -90,27 +96,35 @@ ProyectoConcurrente/
 
 El servidor debe estar ejecutándose antes de iniciar las conexiones de los clientes.
 
-## 📸 Capturas de pantalla
+## Capturas de pantalla
 
 ### Interfaz del servidor
+
 ![Servidor de la pizarra colaborativa](Screenshots/Server.png)
 
 ### Inicio de sesión y registro
+
 ![Inicio de sesión](Screenshots/InicioSesion.png)
 
 ### Interfaz de la pizarra
+
 ![Pizarra colaborativa](Screenshots/interfaz.png)
 
 ### Trabajo simultáneo de varios clientes
+
 ![Concurrencia](Screenshots/interfaz2.png)
 
-### Servidor con el trabajo simultáneo de varios clientes
-![Servidor de la pizarra colaborativa](Screenshots/ServerConClientes.png)
+### Servidor con varios clientes conectados
 
-## 🎥 Demostración
-[Ver demostración en video](https://youtu.be/GfCalODNAsk)
+![Servidor con clientes](Screenshots/ServerConClientes.png)
+
+## Demostración
+
+[Ver demostración en YouTube](https://youtu.be/GfCalODNAsk)
 
 ## Autor
+
+**Desarrollado por [FerGadeaS](https://github.com/FerGadeaS)**
 
 Proyecto académico desarrollado como parte de mi formación en Ciencias de la Computación.
 
