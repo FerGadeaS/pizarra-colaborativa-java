@@ -111,12 +111,22 @@ class Clientes extends JPanel{//Cliente
                     out.writeUTF(matricula);
                     out.writeUTF(password);
                     String mensaje = in.readUTF();
+
                     if(mensaje.equals("creada")){
-                        JOptionPane.showMessageDialog(null, "La cuenta ha sido creada exitosamente.");
+                        JOptionPane.showMessageDialog(
+                            ini,
+                            "La cuenta ha sido creada exitosamente.",
+                            "Cuenta creada",
+                            JOptionPane.INFORMATION_MESSAGE
+                        );
                     }else{
-                        JOptionPane.showMessageDialog(null, mensaje);
+                        JOptionPane.showMessageDialog(
+                            ini,
+                            mensaje,
+                            "Error",
+                            JOptionPane.ERROR_MESSAGE
+                        );
                         socket.close();
-                        //System.exit(1);
                     }
                 }else{
                     out.writeInt(0);
@@ -124,6 +134,7 @@ class Clientes extends JPanel{//Cliente
                     out.writeUTF(password);
 
                     String mensaje = in.readUTF();
+
                     if(mensaje.equals("entras")){
                         ini.setVisible(false);
                         ClienteHilo hilo = new ClienteHilo(conexion, in, out, this);
@@ -133,7 +144,12 @@ class Clientes extends JPanel{//Cliente
                         opcion = 1;
                         correcto = true;
                     }else{
-                        JOptionPane.showMessageDialog(null, mensaje);
+                        JOptionPane.showMessageDialog(
+                            ini,
+                            mensaje,
+                            "Error de inicio de sesión",
+                            JOptionPane.ERROR_MESSAGE
+                        );
                         socket.close();
                     }
                 }

@@ -58,7 +58,7 @@ public class ClienteHilo extends JFrame implements Runnable{
         setTitle("Cliente " + Clientes.matricula);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setSize(800, 800);
-        setResizable(false);
+        setResizable(true);
         setLocationRelativeTo(null);
         setVisible(true);
         scroll.setViewportView(cl);

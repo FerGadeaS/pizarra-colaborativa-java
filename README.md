@@ -90,9 +90,25 @@ ProyectoConcurrente/
 
 El servidor debe estar ejecutándose antes de iniciar las conexiones de los clientes.
 
-## Documentación
+## 📸 Capturas de pantalla
 
-El proyecto incluye un manual técnico en la carpeta `Documentacion`, con información adicional sobre su implementación.
+### Interfaz del servidor
+![Servidor de la pizarra colaborativa](screenshots/Server.png)
+
+### Inicio de sesión y registro
+![Inicio de sesión](screenshots/InicioSesion.png)
+
+### Interfaz de la pizarra
+![Pizarra colaborativa](screenshots/interfaz.png)
+
+### Trabajo simultáneo de varios clientes
+![Concurrencia](screenshots/interfaz2.png)
+
+### Servidor con el trabajo simultáneo de varios clientes
+![Servidor de la pizarra colaborativa](screenshots/ServerConClientes.png)
+
+## 🎥 Demostración
+[Ver demostración en video](https://youtu.be/GfCalODNAsk)
 
 ## Autor
 

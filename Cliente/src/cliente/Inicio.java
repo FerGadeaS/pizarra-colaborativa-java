@@ -24,14 +24,12 @@ public class Inicio extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         CrearCuenta = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        Amat = new javax.swing.JTextArea();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        Apass = new javax.swing.JTextArea();
+        Amat = new javax.swing.JTextField();
+        Apass = new javax.swing.JPasswordField();
         inSes1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setResizable(false);
+        setResizable(true);
 
         bienvenidos.setBackground(new java.awt.Color(120, 164, 189));
 
@@ -84,20 +82,12 @@ public class Inicio extends javax.swing.JFrame {
         CrearCuenta.setBackground(new java.awt.Color(63, 82, 82));
         CrearCuenta.setFont(new java.awt.Font("Arial Narrow", 1, 18)); // NOI18N
         CrearCuenta.setForeground(new java.awt.Color(255, 255, 255));
-        CrearCuenta.setText("Crear cuenta");
+        CrearCuenta.setText("Registrarme");
         CrearCuenta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CrearCuentaActionPerformed(evt);
             }
         });
-
-        Amat.setColumns(20);
-        Amat.setRows(5);
-        jScrollPane1.setViewportView(Amat);
-
-        Apass.setColumns(20);
-        Apass.setRows(5);
-        jScrollPane2.setViewportView(Apass);
 
         inSes1.setBackground(new java.awt.Color(63, 82, 82));
         inSes1.setFont(new java.awt.Font("Arial Narrow", 1, 18)); // NOI18N
@@ -126,10 +116,10 @@ public class Inicio extends javax.swing.JFrame {
                         .addGap(41, 41, 41)))
                 .addGroup(panelSesionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelSesionLayout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(Amat, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Apass, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(140, 140, 140))
             .addGroup(panelSesionLayout.createSequentialGroup()
                 .addGap(249, 249, 249)
@@ -148,14 +138,14 @@ public class Inicio extends javax.swing.JFrame {
                 .addGroup(panelSesionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(matricula)
                     .addComponent(jLabel3)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Amat, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(panelSesionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelSesionLayout.createSequentialGroup()
                         .addComponent(jLabel4)
                         .addGap(44, 44, 44)
                         .addComponent(jLabel5))
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Apass, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
                 .addComponent(CrearCuenta)
                 .addGap(18, 18, 18))
@@ -191,30 +181,43 @@ public class Inicio extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void CrearCuentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CrearCuentaActionPerformed
+        if (!Amat.getText().isEmpty() && Apass.getPassword().length > 0) {
+            Clientes.matricula = Amat.getText();
+            Clientes.password = new String(Apass.getPassword());
+            Clientes.crearCuenta = true;
+            Clientes.cuenta.SIGNAL();
+        } else {
+            JOptionPane.showMessageDialog(
+                this,
+                "Para crear una cuenta, primero ingrese su matrícula y contraseña en los campos correspondientes.",
+                "Crear cuenta",
+                JOptionPane.INFORMATION_MESSAGE
+            );
+        }
 
-        Clientes.matricula = JOptionPane.showInputDialog("Ingrese su matrícula:");
-        Clientes.password = JOptionPane.showInputDialog("Ingrese su contraseña:");
-        Clientes.crearCuenta = true;
-        Clientes.cuenta.SIGNAL();
     }//GEN-LAST:event_CrearCuentaActionPerformed
 
     private void inSes1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inSes1ActionPerformed
-        // TODO add your handling code here:
-        
-        if(Amat.getText().isEmpty() == false && Apass.getText().isEmpty() == false){
+        if (!Amat.getText().isEmpty() && Apass.getPassword().length > 0) {
             Clientes.matricula = Amat.getText();
-            Clientes.password = Apass.getText();
+            Clientes.password = new String(Apass.getPassword());
             Clientes.crearCuenta = false;
             Clientes.cuenta.SIGNAL();
-        }else{
-            JOptionPane.showMessageDialog(null, "Rellene los campos.");
+        } else {
+            JOptionPane.showMessageDialog(
+                this,
+                "Para crear una cuenta, primero ingrese su matrícula y contraseña en los campos correspondientes.",
+                "Crear cuenta",
+                JOptionPane.INFORMATION_MESSAGE
+            );
         }
+
     }//GEN-LAST:event_inSes1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextArea Amat;
-    private javax.swing.JTextArea Apass;
+    private javax.swing.JTextField Amat;
+    private javax.swing.JPasswordField Apass;
     private javax.swing.JButton CrearCuenta;
     private javax.swing.JPanel bienvenidos;
     private javax.swing.JButton inSes1;
@@ -223,8 +226,6 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel matricula;
     private javax.swing.JPanel panelSesion;
     // End of variables declaration//GEN-END:variables

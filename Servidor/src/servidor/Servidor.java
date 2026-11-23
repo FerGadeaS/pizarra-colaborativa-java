@@ -66,11 +66,7 @@ public final class Servidor extends javax.swing.JFrame {
             usersConectados.setViewportView(usersCon);
             int i = 1;
             ServerSocket serverSocket = new ServerSocket(5000);
-            try {
-                ObtieneUsers();
-            } catch (SQLException ex) {
-                Logger.getLogger(Servidor.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            actualizarLista();
             while(TotalCl < 10){
                 if(TotalCl == 9){
                     JOptionPane.showMessageDialog(null, "Numero maximo de usuarios alcanzados.");
@@ -83,7 +79,6 @@ public final class Servidor extends javax.swing.JFrame {
                 DataOutputStream out = new DataOutputStream(clientSocket.getOutputStream());
                 int caso = in.readInt();
                 if(caso == 1){
-                    JOptionPane.showMessageDialog(null, "Opcion crear cuenta");
                     String nombreCl = in.readUTF();
                     String password = in.readUTF();
                     try{
@@ -103,7 +98,7 @@ public final class Servidor extends javax.swing.JFrame {
                             }
                         }
                     }catch(SQLException ex){
-                        JOptionPane.showMessageDialog(null, ex.toString());
+                        System.out.println("Error al crear cuenta: " + ex.getMessage());
                     }
                 }
                 else{
@@ -157,7 +152,7 @@ public final class Servidor extends javax.swing.JFrame {
                         listModel.addElement(nuevoElemento);
                         Conexiones.setModel(listModel);
                     }catch(SQLException ex){
-                        JOptionPane.showMessageDialog(null, ex.toString());
+                        System.out.println("Error al crear cuenta: " + ex.getMessage());
                         clientSocket.close();
                         out.close();
                         in.close();
@@ -197,7 +192,7 @@ public final class Servidor extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Servidor");
         setBackground(new java.awt.Color(249, 249, 249));
-        setResizable(false);
+        setResizable(true);
 
         jScrollPane1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -217,7 +212,8 @@ public final class Servidor extends javax.swing.JFrame {
         jTextField2.setBackground(new java.awt.Color(27, 99, 140));
         jTextField2.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 24)); // NOI18N
         jTextField2.setForeground(new java.awt.Color(162, 195, 206));
-        jTextField2.setText("                                    Pizarra");
+        jTextField2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextField2.setText("Pizarra");
         jTextField2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField2ActionPerformed(evt);
@@ -228,7 +224,8 @@ public final class Servidor extends javax.swing.JFrame {
         jTextField3.setBackground(new java.awt.Color(162, 195, 206));
         jTextField3.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 24)); // NOI18N
         jTextField3.setForeground(new java.awt.Color(27, 99, 140));
-        jTextField3.setText("                   Usuarios");
+        jTextField3.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextField3.setText("Usuarios");
 
         jMenu3.setText("Archivo");
 
@@ -263,12 +260,12 @@ public final class Servidor extends javax.swing.JFrame {
                     .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 285, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 529, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 512, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 529, Short.MAX_VALUE)
+                    .addComponent(jTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 529, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(usersConectados)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.DEFAULT_SIZE, 331, Short.MAX_VALUE))
+                    .addComponent(usersConectados, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
